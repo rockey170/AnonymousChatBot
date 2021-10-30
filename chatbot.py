@@ -83,7 +83,7 @@ def reg_sex(message):
     if (sex == u'Man👦') or (sex == u'Woman👩🏻'):
         user.sex = sex
         mark = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
-        mark.add('Man👦', 'Woman👩🏻', 'Man and woman👀')
+        mark.add('Man👦', 'Woman👩🏻', 'Both')
         bot.send_message(message.from_user.id, '*⏳You want to find a partner :*',parse_mode="markdown", reply_markup=mark)
         bot.register_next_step_handler(message, reg_change)
 
@@ -98,7 +98,7 @@ def reg_change(message):
         user.change = message.text
         date1 = datetime.fromtimestamp(message.date, tz=pytz.timezone("asia/jakarta")).strftime("%d/%m/%Y %H:%M:%S").split()
         bot.send_message(message.from_user.id,
-                         "🐱 - _YOUR BIO_ - 🐱\n\n*=> Nama :* " + str(user.name) + "\n*=> Age :* " + str(user.age)+" Year" + "\n*=> Gender :* " + str(user.sex) + "\n*=> Couple Type :* " + str(user.change)+ "\n*=> Register On :\n        >Ate :* "+str(date1[0])+"\n    *    >Time :* "+str(date1[1])+" WIB", parse_mode="markdown")
+                         "🐱 - _YOUR BIO_ - 🐱\n\n*=> Name :* " + str(user.name) + "\n*=> Age :* " + str(user.age)+" Year" + "\n*=> Gender :* " + str(user.sex) + "\n*=> Couple Type :* " + str(user.change)+ "\n*=> Register On :\n        >Ate :* "+str(date1[0])+"\n    *    >Time :* "+str(date1[1])+" WIB", parse_mode="markdown")
         markup = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
         markup.add('Yes ✔️', 'Not ✖️')
         bot.send_message(message.from_user.id, "`Want to change the data above??`",parse_mode="markdown", reply_markup=markup)
