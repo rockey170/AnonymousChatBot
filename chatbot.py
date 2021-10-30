@@ -93,7 +93,7 @@ def reg_sex(message):
 
 
 def reg_change(message):  
-    if (message.text == u'Man👦') or (message.text == u'Woman👩🏻') or (message.text == u'Man and woman👀'):
+    if (message.text == u'Man👦') or (message.text == u'Woman👩🏻') or (message.text == u'Both'):
         user = user_dict[message.from_user.id]
         user.change = message.text
         date1 = datetime.fromtimestamp(message.date, tz=pytz.timezone("asia/jakarta")).strftime("%d/%m/%Y %H:%M:%S").split()
